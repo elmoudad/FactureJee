@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout">
+<head>
+<meta charset="utf-8" />
+<title>Factures</title>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css"
+	href="../static/css/bootstrap.min.css"
+	th:href="@{css/bootstrap.min.css}" />
+<link rel="stylesheet" type="text/css" href="../static/css/style.css"
+	th:href="@{css/style.css}" />
+</head>
+<body>
+	<div layout:fragment="content">
+		<div class="spacer col-md-6 col-xm-12">
+			<div class="panel panel-default">
+				<div class="panel-heading">Saisie d'un facture</div>
+				<div class="panel-body">
+					<form th:action="@{save}" method="post">
+						<div class="form-group">
+							<label class="control-label">Numero:</label> <input
+								class="form-control" type="text" name="numero"
+								th:value="${facture.numero}"/ > <span class="red"
+								th:errors="${facture.numero}"></span>
+						</div>
+						<div class="form-group">
+							<label class="control-label">dateFacturation</label> 
+							  <input type="datetime-local" name="dateFacturation"
+							  th:value="${facture.dateFacturation}"/ > <span class="red"
+								th:errors="${facture.dateFacturation}"></span>
+							
+								
+						</div>
+						<div class="form-group">
+							<label class="control-label">montant</label> <input
+								class="form-control" type="text" name="montant"
+								th:value="${facture.montant}"> <span class="red"
+								th:errors="${facture.montant}"></span>
+						</div>
+						<div class="form-group">
+							<label class="control-label">nomSoc</label> <input
+								class="form-control" type="text" name="nomSoc"
+								th:value="${facture.nomSoc}"> <span class="red"
+								th:errors="${facture.nomSoc}"></span>
+						</div>
+							<div class="form-group">
+							<label class="control-label">regle</label> <input
+								class="form-control" type="text" name="regle"
+								th:value="${facture.regle}"> <span class="red"
+								th:errors="${facture.regle}"></span>
+						</div>
+						<div>
+							<button type="submit" class="btn btn-primary">Save</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
